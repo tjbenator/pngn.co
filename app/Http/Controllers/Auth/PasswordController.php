@@ -1,6 +1,6 @@
-<?php namespace App\Http\Controllers\Auth;
+<?php namespace Pngn\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use Pngn\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;

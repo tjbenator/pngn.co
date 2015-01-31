@@ -1,4 +1,4 @@
-<?php namespace App;
+<?php namespace Pngn;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;
