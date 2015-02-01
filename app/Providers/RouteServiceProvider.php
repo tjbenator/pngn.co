@@ -38,6 +38,7 @@ class RouteServiceProvider extends ServiceProvider {
 		$router->group(['namespace' => $this->namespace], function($router)
 		{
 			$router->get('/', 'LinkController@create');
+			$router->post('/', 'LinkController@store');
 			$router->get('dashboard', 'DashboardController@index');
 			$router->controllers([
 				'auth' => 'Auth\AuthController',

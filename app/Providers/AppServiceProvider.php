@@ -29,6 +29,15 @@ class AppServiceProvider extends ServiceProvider {
 			'Illuminate\Contracts\Auth\Registrar',
 			'Pngn\Services\Registrar'
 		);
-	}
 
+		$this->app->bind(
+			'Pngn\Repositories\LinkRepositoryInterface',
+			'Pngn\Repositories\DbLinkRepository'
+		);
+
+		$this->app->bind(
+			'Pngn\Shortener\ShortenInterface',
+			'Pngn\Shortener\Shorten'
+		);
+	}
 }

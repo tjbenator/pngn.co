@@ -2,11 +2,20 @@
 
 use Pngn\Http\Requests;
 use Pngn\Http\Controllers\Controller;
+use Pngn\Shortener\ShortenInterface;
+use Pngn\Http\Requests\CreateLinkRequest;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\View;
 
 class LinkController extends Controller {
+
+	protected $Shorten;
+
+	public function __construct(ShortenInterface $Shorten)
+	{
+		$this->Shorten = $Shorten;
+	}
 
 	/**
 	 * Display a listing of the resource.
@@ -33,53 +42,19 @@ class LinkController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateLinkRequest $request)
 	{
-		//
+		$this->Shorten->make($request->all());
 	}
 
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  string  $hash
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($hash)
 	{
-		//
+		$this->Shorten->byHash($hash);
 	}
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function edit($id)
-	{
-		//
-	}
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function update($id)
-	{
-		//
-	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 }
